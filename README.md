@@ -1,4 +1,4 @@
-# Domyland for Home Assistant
+# Domiland for Home Assistant
 
 Интеграция Home Assistant для управления счётчиками и данными из приложения **Домиленд+**.
 
