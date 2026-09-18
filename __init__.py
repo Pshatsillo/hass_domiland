@@ -33,7 +33,6 @@ SUBMIT_METERING_SCHEMA = vol.Schema(
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Настройка Domyland из записи конфигурации."""
-    # Создаём OAuth2-сессию HA (она сама обновляет Яндекс-токен)
     implementation = (
         await config_entry_oauth2_flow.async_get_config_entry_implementation(
             hass, entry
@@ -43,7 +42,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     session = async_get_clientsession(hass)
 
-    # API-клиент использует токен Домиленда (он уже в entry.data)
     api = DomylandApiClient(
         session=session,
         token=entry.data["domyland_token"],
@@ -51,7 +49,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         building_id=entry.data["building_id"],
     )
 
-    coordinator = DomylandDataUpdateCoordinator(hass, api)
+    coordinator = DomylandDataUpdateCoordinator(hass, api, entry, oauth_session)
     await coordinator.async_config_entry_first_refresh()
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = {
@@ -60,7 +58,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         "oauth_session": oauth_session,
     }
 
-    # Регистрируем сервис
     if not hass.services.has_service(DOMAIN, SERVICE_SUBMIT_METERING):
 
         async def _handle_submit_metering(call: ServiceCall) -> None:

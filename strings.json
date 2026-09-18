@@ -10,20 +10,35 @@
       "user": {
         "title": "Домиленд",
         "description": "Введите данные вашего приложения Яндекс OAuth. Создайте его на {console_url}."
+      },
+      "reauth_confirm": {
+        "title": "Повторная аутентификация Домиленд",
+        "description": "Токен Домиленда истёк, и автоматическое обновление не удалось. Нажмите «Отправить», чтобы авторизоваться заново."
       }
+    },
+    "error": {
+      "cannot_connect": "Не удалось обменять токен. Проверьте Яндекс-токен.",
+      "no_places": "Не удалось получить список помещений. Обратитесь в УК."
     },
     "abort": {
       "already_configured": "Интеграция уже настроена.",
+      "reauth_successful": "Повторная аутентификация успешна.",
       "cannot_connect": "Не удалось обменять токен.",
       "no_places": "Не удалось получить список помещений.",
-      "oauth_error": "Ошибка OAuth2.",
-      "oauth_timeout": "Тайм-аут OAuth2.",
-      "oauth_unauthorized": "OAuth2: неавторизованный клиент.",
+      "oauth_error": "Ошибка OAuth2. Попробуйте ещё раз.",
+      "oauth_timeout": "Тайм-аут OAuth2. Попробуйте ещё раз.",
+      "oauth_unauthorized": "OAuth2: неавторизованный клиент. Проверьте client_id и client_secret.",
       "oauth_failed": "OAuth2: неизвестная ошибка.",
-      "missing_configuration": "Не настроены Application Credentials."
+      "oauth_implementation_not_available": "OAuth2-реализация недоступна.",
+      "missing_configuration": "Не настроены Application Credentials. Добавьте client_id и client_secret."
     }
   },
   "application_credentials": {
-    "description": "Создайте приложение на {console_url}, укажите Redirect URI: `https://my.home-assistant.io/redirect/oauth`."
+    "description": "Создайте приложение на {console_url}, укажите Redirect URI: `https://my.home-assistant.io/redirect/oauth` (или `https://ваш-домен/auth/external/callback`)."
+  },
+  "exceptions": {
+    "reauth_required": {
+      "message": "Токен Домиленда истёк. Требуется повторная аутентификация."
+    }
   }
 }
