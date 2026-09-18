@@ -1,0 +1,29 @@
+{
+  "config": {
+    "step": {
+      "pick_implementation": {
+        "title": "Выберите способ авторизации"
+      },
+      "auth": {
+        "title": "Авторизация в Яндекс"
+      },
+      "user": {
+        "title": "Домиленд",
+        "description": "Введите данные вашего приложения Яндекс OAuth. Создайте его на {console_url}."
+      }
+    },
+    "abort": {
+      "already_configured": "Интеграция уже настроена.",
+      "cannot_connect": "Не удалось обменять токен.",
+      "no_places": "Не удалось получить список помещений.",
+      "oauth_error": "Ошибка OAuth2.",
+      "oauth_timeout": "Тайм-аут OAuth2.",
+      "oauth_unauthorized": "OAuth2: неавторизованный клиент.",
+      "oauth_failed": "OAuth2: неизвестная ошибка.",
+      "missing_configuration": "Не настроены Application Credentials."
+    }
+  },
+  "application_credentials": {
+    "description": "Создайте приложение на {console_url}, укажите Redirect URI: `https://my.home-assistant.io/redirect/oauth`."
+  }
+}
