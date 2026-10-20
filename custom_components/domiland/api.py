@@ -300,7 +300,7 @@ class DomylandApiClient:
 
         return await self._request(
             "POST",
-            "/meteringdata/bunate",
+            "/meteringdata/bunch-create",
             params={"meteringGroupId": metering_group_id},
             json_data={"meteringData": [payload]},
         )
